@@ -1,6 +1,6 @@
 {
   "name": "flashy-js",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Flashy is a lightweight, 0 dependency library that creates beatiful flash messages, using vanilla web components.",
   "main": "dist/flashy.js",
   "unpkg": "dist/flashy.min.js",
