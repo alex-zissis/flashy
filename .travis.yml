@@ -10,8 +10,6 @@ before_script:
 
 script:
   - npm run test
-
-after_script:
   - npm run build
 
 jobs:
@@ -23,6 +21,7 @@ jobs:
         provider: npm
         email: "alex_z9@outlook.com"
         api_key: $NPM_API_KEY
+        skip_cleanup: true
         on:
           tags: true
     - stage: github release
