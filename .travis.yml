@@ -1,8 +1,27 @@
-deploy:
-  provider: releases
-  api_key: "$GITHUB_TOKEN"
-  file: "ZIP_PATH"
-  skip_cleanup: true
-  on:
-    tags: true
-    branch: master
+language: node_js
+node_js:
+  - "10"
+
+install:
+  - npm install
+
+before_script:
+  - npm run lint
+
+script:
+  - npm run test
+
+after_script:
+  - npm run build
+
+jobs:
+  include:
+    - stage: npm release
+      node_js: "7"
+      script: echo "Deploying to npm ..."
+      deploy:
+        provider: npm
+        email: "alex_z9@outlook.com"
+        api_key: $NPM_API_KEY
+        on:
+          branch: develop

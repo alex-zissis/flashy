@@ -9,15 +9,14 @@ export default [
             format: 'iife',
             name: 'Flashy',
             sourcemap: true,
-            sourcemapFile: 'dist/flashy.min.js.map'
+            sourcemapFile: 'dist/flashy.min.js.map',
         },
-        plugins:
-            [
-                babel({
-                    exclude: 'node_modules/**'
-                }),
-                minify()
-            ]
+        plugins: [
+            babel({
+                exclude: 'node_modules/**',
+            }),
+            minify(),
+        ],
     },
     {
         input: 'flashy.js',
@@ -26,13 +25,12 @@ export default [
             format: 'iife',
             name: 'Flashy',
             sourcemap: true,
-            sourcemapFile: 'dist/flashy.js.map'
+            sourcemapFile: 'dist/flashy.js.map',
         },
-        plugins:
-            [
-                babel({
-                    exclude: 'node_modules/**'
-                })
-            ]
+        plugins: [
+            babel({
+                exclude: 'node_modules/**',
+            }),
+        ],
     },
-]
+];

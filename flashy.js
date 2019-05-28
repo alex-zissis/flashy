@@ -1,5 +1,5 @@
-window.onload = function () {
-    console.log('flashy')
+window.onload = function() {
+    console.log('flashy');
     const style = document.createElement('style');
     style.textContent = `
         flash-messages {
@@ -16,7 +16,7 @@ window.onload = function () {
         }
     `;
     document.querySelector('body').appendChild(style);
-}
+};
 
 function triggerAnimation(duration, className, element) {
     element.classList.add(className);
@@ -28,9 +28,8 @@ class FlashMessages extends HTMLElement {
         super();
 
         setTimeout(() => {
-            this.maxMessages = this.dataset["maxMessages"] || 10;
+            this.maxMessages = this.dataset['maxMessages'] || 10;
         }, 0);
-
 
         const style = document.createElement('style');
 
@@ -228,7 +227,7 @@ class FlashMessages extends HTMLElement {
                 opacity: 0;
             }
         }
-        `
+        `;
 
         this.shadowRootObj = this.attachShadow({ mode: 'open' });
         this.shadowRootObj.appendChild(style);
@@ -239,9 +238,13 @@ class FlashMessages extends HTMLElement {
         setTimeout(() => {
             if (elem.nextElementSibling) {
                 triggerAnimation(200, 'moveup', elem.nextElementSibling);
-            };
+            }
             if (elem.nextElementSibling.nextElementSibling) {
-                triggerAnimation(200, 'moveup', elem.nextElementSibling.nextElementSibling);
+                triggerAnimation(
+                    200,
+                    'moveup',
+                    elem.nextElementSibling.nextElementSibling
+                );
             }
             elem.remove();
         }, 200);
@@ -252,8 +255,8 @@ class FlashMessages extends HTMLElement {
             error: '😨',
             warning: '😶',
             success: '😇',
-            info: '😜'
-        }
+            info: '😜',
+        };
         let icon = emoji[options.type];
 
         if (options.styles) {
@@ -322,7 +325,7 @@ class FlashMessages extends HTMLElement {
                         button.action();
                     }
                     if (button.closesFlash) {
-                        this.remove_child(btn.parentElement.parentElement)
+                        this.remove_child(btn.parentElement.parentElement);
                     }
                 });
                 if (options.styles) {
@@ -348,7 +351,9 @@ class FlashMessages extends HTMLElement {
             span.innerHTML = 'X';
             span.classList.add('close-flash');
             span.addEventListener('click', event => {
-                const flashElem = event.srcElement.parentElement || event.target.parentElement;
+                const flashElem =
+                    event.srcElement.parentElement ||
+                    event.target.parentElement;
                 this.remove_child(flashElem);
             });
             newFlash.appendChild(span);
@@ -366,26 +371,24 @@ class FlashMessages extends HTMLElement {
             this.shadowRootObj.lastChild.previousSibling.remove();
         }
 
-        this.shadowRootObj.insertBefore(newFlash, this.shadowRootObj.firstChild);
+        this.shadowRootObj.insertBefore(
+            newFlash,
+            this.shadowRootObj.firstChild
+        );
         if (newFlash.nextElementSibling) {
             triggerAnimation(200, 'movedown', newFlash.nextElementSibling);
         }
 
         if (options.expiry > 0) {
-            setTimeout(() => this.remove_child(newFlash), options.expiry)
+            setTimeout(() => this.remove_child(newFlash), options.expiry);
         }
-
     }
 }
 
 window.customElements.define('flash-messages', FlashMessages);
 
-Flashy = function (selector, options) {
-    document.querySelector(selector).add_child(options)
-}
-
-Flashy.config = function () {
-    console.log('config')
-}
+Flashy = function(selector, options) {
+    document.querySelector(selector).add_child(options);
+};
 
 export default Flashy;
