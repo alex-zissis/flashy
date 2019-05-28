@@ -1,8 +1,9 @@
 {
-  "name": "flashy",
+  "name": "flashy-js",
   "version": "0.2.0",
   "description": "Flashy is a lightweight, 0 dependency library that creates beatiful flash messages, using vanilla web components.",
-  "main": "flashy.js",
+  "main": "dist/flashy.js",
+  "unpkg": "dist/flashy.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -30,5 +31,8 @@
     "rollup": "^1.12.4",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-babel-minify": "^8.0.0"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
