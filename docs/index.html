@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../dist/flashy.min.js"></script>
+    <script src="./demo.js"></script>
+</head>
+
+<body>
+    Hello World
+    <button onclick="addError()">Error</button>
+    <button onclick="addWarning()">Warning</button>
+    <button onclick="addInfo()">Info</button>
+    <button onclick="addSuccess()">Success</button>
+
+    <flash-messages data-max-messages="5">
+
+    </flash-messages>
+    <script>
+        // function printHello() {
+        //     console.log('hello');
+        // }
+        const printHello = () => {
+            console.log('hello');
+        }
+
+
+        function addError() {
+            Flashy('flash-messages', {
+                type: 'error',
+                title: 'this is an error',
+                message: 'oh no',
+                expiry: 0,
+                buttons: [
+                    {
+                        text: 'OK',
+                        action: printHello,
+                        closesFlash: true,
+                    },
+                    {
+                        text: 'Cancel',
+                        action: printHello,
+                        closesFlash: true,
+                    }
+                ],
+                globalClose: true
+            });
+        }
+
+        function addSuccess() {
+            Flashy('flash-messages', {
+                type: 'success',
+                title: 'great success',
+                message: 'oh yay',
+                expiry: 0,
+                globalClose: true
+            });
+        }
+
+        function addWarning() {
+            Flashy('flash-messages', {
+                type: 'warning',
+                title: 'this is warning',
+                message: 'mild annoyance',
+                expiry: 0,
+                buttons: [
+                    {
+                        text: 'OK',
+                    },
+                    {
+                        text: 'Cancel',
+                    },
+                    {
+                        text: 'Useless',
+                    }
+                ],
+                globalClose: true
+            });
+        }
+
+        function addInfo() {
+            Flashy('flash-messages', {
+                type: 'info',
+                title: 'this is informative',
+                message: 'oh no',
+                expiry: 5000,
+                buttons: [
+                    {
+                        text: 'OK',
+                        action: printHello,
+                        closesFlash: true,
+                    },
+                ],
+                globalClose: false,
+                // styles: {
+                //     flashColor: '#fff',
+
+                //     titleTextColor: '#000',
+                //     titleTextFont: '\'Arial\' sans-serif',
+
+                //     msgTextColor: 'pink',
+                //     msgTextFont: '\'Arial\' sans-serif',
+
+                //     linkTextColor: 'black',
+                //     linkTextFont: '\'Arial\' sans-serif',
+
+                //     icon: {
+                //         type: 'unicode',
+                //         val: '🤑'
+                //     },
+                //     iconBackgroundColor: 'grey'
+                // }
+            });
+        }
+    </script>
+</body>
+
+</html>

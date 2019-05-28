@@ -1,0 +1,34 @@
+{
+  "name": "flashy",
+  "version": "0.2.0",
+  "description": "Flashy is a lightweight, 0 dependency library that creates beatiful flash messages, using vanilla web components.",
+  "main": "flashy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-zissis/flashy.git"
+  },
+  "keywords": [
+    "flashy",
+    "flash",
+    "messages",
+    "web-components",
+    "web",
+    "components"
+  ],
+  "author": "Alex Zissis <alex@alexzissis.tech>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alex-zissis/flashy/issues"
+  },
+  "homepage": "https://github.com/alex-zissis/flashy#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "rollup": "^1.12.4",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-babel-minify": "^8.0.0"
+  }
+}
