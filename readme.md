@@ -1,8 +1,10 @@
 # Flashy
 
-Flashy is a 0 dependancy, lightweight flash messages library build using vanilla web components.
+Flashy is a 0 dependancy, lightweight flash messages library built using vanilla web components.
 
-![](https://drive.google.com/file/d/1h6Izxad7dyzbAgxwVU2_Dldn8b98aQjs/view?usp=sharing)
+<p align="center">
+    <img src="https://media.giphy.com/media/VCtijNUKGt3ZYIAUTX/giphy.gif">
+</p>
 
 ## Installation
 #### HTML
@@ -171,4 +173,4 @@ The acceptable values in the options object.
     });
 ```
 
-Check out the website for 
+Check out the website for project website https://alex-zissis.github.com
