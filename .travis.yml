@@ -26,12 +26,14 @@ jobs:
     #     on:
     #       tags: true
     - stage: github release
-      provider: releases
-      api_key: "$GITHUB_OATH"
-      file_glob: true
-      file: dist/*
-      skip_cleanup: true
-      on:
-        branch: develop
+      node_js: "10"
+      deploy:
+        provider: releases
+        api_key: "$GITHUB_OATH"
+        file_glob: true
+        file: dist/*
+        skip_cleanup: true
+        on:
+          branch: develop
 
   
