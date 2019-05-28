@@ -5,7 +5,7 @@
   "main": "dist/flashy.js",
   "unpkg": "dist/flashy.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"test\"",
     "lint": "eslint *.js",
     "lint-fix": "eslint *.js --fix",
     "build": "rollup -c"
