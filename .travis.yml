@@ -16,15 +16,15 @@ after_script:
 
 jobs:
   include:
-    # - stage: npm release
-    #   node_js: "10"
-    #   script: echo "Deploying to npm ..."
-    #   deploy:
-    #     provider: npm
-    #     email: "alex_z9@outlook.com"
-    #     api_key: $NPM_API_KEY
-    #     on:
-    #       tags: true
+    - stage: npm release
+      node_js: "10"
+      script: echo "Deploying to npm ..."
+      deploy:
+        provider: npm
+        email: "alex_z9@outlook.com"
+        api_key: $NPM_API_KEY
+        on:
+          tags: true
     - stage: github release
       node_js: "10"
       deploy:
@@ -34,6 +34,6 @@ jobs:
         file: dist/*
         skip_cleanup: true
         on:
-          branch: develop
+          tags: true
 
   
