@@ -8,9 +8,13 @@ Flashy is a 0 dependancy, lightweight flash messages library built using vanilla
 
 ## Installation
 #### HTML
-Simply include Flashy in your HTML
+Simply include Flashy in your HTML using UNPKG
 ```html
-<script src="flashy.min.js">
+<script src="https://unpkg.com/flashy-js@latest/dist/flashy.min.js"></script>
+```
+or
+```html
+<script src="./lib/flashy.min.js"></script>
 ```
 
 #### Bower
