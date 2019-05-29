@@ -1,0 +1,211 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #34495e;
+}
+ 
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
+ 
+.flashy-inline {
+    left: unset;
+    bottom: unset;
+    position: unset;
+    height: 100px;
+}
+
+.flashy-queue {
+    position: relative;
+}
+ 
+
+.inline-container {
+    display: inline-block;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+ 
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 90vw;
+    justify-content: center;
+}
+
+.toggle-all {
+    display: block;
+    margin-left: 5% !important;
+    margin-bottom: 20px !important;
+}
+ 
+.button {
+    display: inline-block;
+    width: max-content;
+    text-align: center;
+    margin: auto;
+    padding: 15px 20px;
+    color: white;
+    border: 1px solid white;
+    font-size: .7em;
+}
+ 
+.default-card-title {
+    color: white;
+    font-weight: 200;
+}
+ 
+.button:hover {
+    cursor: pointer;
+    -webkit-animation: mymove 1s;  /* Safari 4.0 - 8.0 */
+    -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+    animation: mymove 1s;
+    animation-fill-mode: forwards;
+}
+
+.button-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.big-container {
+    border: 1px solid salmon;
+    margin: auto;
+    height: max-content;
+}
+
+.heading {
+    font-weight: 300;
+    width: 90%;
+    padding-bottom: 2px;
+    border-bottom: 2px solid salmon;
+    margin: auto;
+}
+
+.html {
+    font-size: .7em;
+    margin-bottom: 20px !important;
+}
+
+.code {
+    font-size: .7em;
+    margin-bottom: 20px !important;
+}
+
+.hideable {
+    display: block;
+}
+
+.toolbar {
+    display: none;
+}
+
+.section-info {
+    width: 90%;
+    display: block;
+    font-size: .9em;
+    margin: auto;
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.title, .subtitle {
+    font-weight: lighter;
+    width: 90%;
+    margin: auto;
+}
+
+.title {
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    margin-bottom: 25px;
+}
+
+.header {
+    width: 100%;
+    height: 5vh;
+    background-color: salmon;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+
+.header-title {
+    color: white;
+    margin-left: 5%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.add-flashy > div > .button {
+    margin: 10px;
+}
+
+.footer {
+    border-top: 1px solid black;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+ 
+.badges {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.travis-badge {
+    height: 20px;
+}
+
+.badge {
+    max-height: 40px;
+    margin-left: 10px;
+}
+
+.long-badge {
+    max-height: 25px;
+}
+
+.links {
+    margin-left: 5%;
+}
+
+
+a:visited, a {
+    color: white;
+    text-decoration-color: white;
+    text-decoration: underline;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymove {
+  from {}
+  to {
+    color: #34495e;
+    background-color: white;
+    }
+}
+ 
+@keyframes mymove {
+  from {}
+  to {
+      background-color: white;
+      color: #34495e;
+    }
+}
+ 

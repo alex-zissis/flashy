@@ -5,118 +5,318 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Flashy</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono&subset=cyrillic,cyrillic-ext,latin-ext"
+        rel="stylesheet">
     <script src="https://unpkg.com/flashy-js@latest/dist/flashy.min.js"></script>
     <script src="./demo.js"></script>
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="./lib/prism-theme.css">
+    <script src="./lib/prism.js"></script>
 </head>
 
 <body>
-    Hello World
-    <button onclick="addError()">Error</button>
-    <button onclick="addWarning()">Warning</button>
-    <button onclick="addInfo()">Info</button>
-    <button onclick="addSuccess()">Success</button>
+    <div class="header">
+        <span class="header-title">Flashy</span>
+    </div>
 
-    <flash-messages data-max-messages="5">
+    <br><br><br>
+    <h1 class="title">Welcome to Flashy</h1>
+    <h4 class="subtitle">Flashy is a 0 dependancy, lightweight flash messages library built using vanilla web
+        components.</h4>
 
-    </flash-messages>
-    <script>
-        // function printHello() {
-        //     console.log('hello');
-        // }
-        const printHello = () => {
-            console.log('hello');
-        }
+    <span class="section-info">A web component by <a href="https://alexzissis.tech">Alex Zissis</a>.</span>
 
+    <div class="badges">
+        <img class="travis-badge" src="https://travis-ci.org/alex-zissis/flashy.svg?branch=master">
+    </div>
+    <h3 class="links">Links:</h5>
+        <div class="badges">
+            <a href="https://github.com/alex-zissis/flashy.git" target="_blank"><img class="badge"
+                    src="./img/github.svg"></a>
+            <a href="https://npmjs.com/package/flashy-js" target="_blank"><img class="badge long-badge"
+                    src="./img/npm.svg"></a>
+        </div>
 
-        function addError() {
-            Flashy('flash-messages', {
-                type: 'error',
-                title: 'this is an error',
-                message: 'oh no',
-                expiry: 0,
-                buttons: [
-                    {
-                        text: 'OK',
-                        action: printHello,
-                        closesFlash: true,
-                    },
-                    {
-                        text: 'Cancel',
-                        action: printHello,
-                        closesFlash: true,
-                    }
-                ],
-                globalClose: true
-            });
-        }
+        <span class="button toggle-all" onclick="toggleAllCode()">Toggle All Code Snippets</span>
 
-        function addSuccess() {
-            Flashy('flash-messages', {
-                type: 'success',
-                title: 'great success',
-                message: 'oh yay',
-                expiry: 0,
-                globalClose: true
-            });
-        }
+        <h2 class="heading">Flashy Messages</h2>
+        <span class="section-info">Flashy messages are minimilistic, concise messages that are shown to the user, often
+            to
+            convey the outcome of an action.</span>
+        <span class="section-info">Flashy messages work in a queue system. Try adding Flashy messages below abd see what
+            happens.</span>
 
-        function addWarning() {
-            Flashy('flash-messages', {
-                type: 'warning',
-                title: 'this is warning',
-                message: 'mild annoyance',
-                expiry: 0,
-                buttons: [
-                    {
-                        text: 'OK',
-                    },
-                    {
-                        text: 'Cancel',
-                    },
-                    {
-                        text: 'Useless',
-                    }
-                ],
-                globalClose: true
-            });
-        }
+        <div class="container">
+            <div class="inline-container add-flashy">
+                <div class="button-container">
+                    <span class="button" onclick="addFlashy('error')">Add Error</span>
+                    <span class="button" onclick="addFlashy('warning')">Add Warning</span>
+                    <span class="button" onclick="addFlashy('info')">Add Info</span>
+                    <span class="button" onclick="addFlashy('success')">Add Success</span>
+                </div>
+            </div>
+        </div>
 
-        function addInfo() {
-            Flashy('flash-messages', {
-                type: 'info',
-                title: 'this is informative',
-                message: 'oh no',
-                expiry: 5000,
-                buttons: [
-                    {
-                        text: 'OK',
-                        action: printHello,
-                        closesFlash: true,
-                    },
-                ],
-                globalClose: false,
-                // styles: {
-                //     flashColor: '#fff',
+        <h2 class="heading">Getting Started</h2>
+        <span class="section-info">To get started, simply include Flashy in your HTML. You can then create a simple
+            flash
+            message like below.</span>
+        <div class="container">
+            <pre id="code-html-getting-started" class="html">
+            <code class="language-markup">
+                &lt;script src="https://unpkg.com/flashy-js@latest/dist/flashy.min.js"&gt;&lt;/script&gt;
+                &lt;flash-messages data-max-messages="5"&gt;&lt;/flash-messages&gt;
+                &lt;script&gt;
+                    // now you have Flashy available as a global varirable
+                    Flashy('.my-flash-message-element', {
+                        type: 'success',
+                        title: 'Now you can use flashy',
+                        message: `Simply call the Flashy
+                            function like this`,
+                        globalClose: true,
+                        expiry: 5000
+                    });
+                &lt;/script&gt;
+            </code>
+        </pre>
+        </div>
 
-                //     titleTextColor: '#000',
-                //     titleTextFont: '\'Arial\' sans-serif',
+        <h2 class="heading">Basic Flash Messages</h2>
+        <span class="section-info">There are 4 types of flash messages in Flashy; <em>error</em>, <em>warning</em>,
+            <em>info</em> and
+            <em>success</em>.</span>
+        <div class="container">
+            <div class="inline-container">
+                <h3 class="default-card-title">error</h3>
+                <flash-messages class="flashy-inline flashy-inline-1" data-max-messages="1"></flash-messages>
+                <pre id="code-default-flash-1" class="hideable code">
+                <code class="language-javascript">
+                    Flashy('.my-flash-message-element', {
+                        type: 'error',
+                        text: 'error example',
+                        message: `This is what an error 
+                            flash looks like!`,
+                    });
+                </code>
+            </pre>
+                <div class="button-container">
+                    <span class="button" onclick="defaultFlash('.flashy-inline-1', 'error')">Recreate Flash</span>
+                    <span class="button" onclick="toggleCode('#code-default-flash-1')">Toggle Code</span>
+                </div>
+            </div>
 
-                //     msgTextColor: 'pink',
-                //     msgTextFont: '\'Arial\' sans-serif',
+            <div class="inline-container">
+                <h3 class="default-card-title">warning</h3>
+                <flash-messages class="flashy-inline flashy-inline-2" data-max-messages="1"></flash-messages>
+                <pre id="code-default-flash-2" class="hideable code">
+                    <code class="language-javascript">
+                        Flashy('.my-flash-message-element', {
+                            type: 'warning',
+                            text: 'warning example',
+                            message: `This is what a warning 
+                                flash looks like!`,
+                        });
+                    </code>
+                </pre>
+                <div class="button-container">
+                    <span class="button" onclick="defaultFlash('.flashy-inline-2', 'warning')">Recreate Flash</span>
+                    <span class="button" onclick="toggleCode('#code-default-flash-2')">Toggle Code</span>
+                </div>
+            </div>
 
-                //     linkTextColor: 'black',
-                //     linkTextFont: '\'Arial\' sans-serif',
+            <div class="inline-container">
+                <h3 class="default-card-title">info</h3>
+                <flash-messages class="flashy-inline flashy-inline-3" data-max-messages="1"></flash-messages>
+                <pre id="code-default-flash-3" class="hideable code">
+                    <code class="language-javascript">
+                        Flashy('.my-flash-message-element', {
+                            type: 'info',
+                            text: 'info example',
+                            message: `This is what an info 
+                                flash looks like!`,
+                        });
+                    </code>
+                </pre>
+                <div class="button-container">
+                    <span class="button" onclick="defaultFlash('.flashy-inline-3', 'info')">Recreate Flash</span>
+                    <span class="button" onclick="toggleCode('#code-default-flash-3')">Toggle Code</span>
+                </div>
+            </div>
 
-                //     icon: {
-                //         type: 'unicode',
-                //         val: '🤑'
-                //     },
-                //     iconBackgroundColor: 'grey'
-                // }
-            });
-        }
-    </script>
+            <div class="inline-container">
+                <h3 class="default-card-title">success</h3>
+                <flash-messages class="flashy-inline flashy-inline-4" data-max-messages="1"></flash-messages>
+                <pre id="code-default-flash-4" class="hideable code">
+                <code class="language-javascript">
+                    Flashy('.my-flash-message-element', {
+                        type: 'success',
+                        text: 'success example',
+                        message: `This is what a success 
+                            flash looks like!`,
+                    });
+                </code>
+            </pre>
+                <div class="button-container">
+                    <span class="button" onclick="defaultFlash('.flashy-inline-4', 'success')">Recreate Flash</span>
+                    <span class="button" onclick="toggleCode('#code-default-flash-4')">Toggle Code</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="heading">Customisation</h2>
+        <span class="section-info">Each Flashy message accepts a <em>styles</em> object that you can use to customise
+            the
+            look of it. <a href="#">Click here</a> for a full reference of what can be customised.</span>
+        <div class="container">
+            <div class="inline-container">
+                <h3 class="default-card-title">custom styling</h3>
+                <flash-messages class="flashy-inline flashy-inline-5" data-max-messages="1"></flash-messages>
+                <pre id="code-customisation-flash-1" class="hideable code">
+                        <code class="language-javascript">
+                                Flashy('.my-flash-message-element', {
+                                    type: 'info',
+                                    title: 'custom styling',
+                                    message: 'look at these styles',
+                                    globalClose: true,
+                                    styles: {
+                                        flashColor: '#3d3737',
+                                        titleTextColor: 'salmon',
+                                        msgTextColor: 'salmon',
+                                        titleTextFont: `Arial, 
+                                            Helvetica ,sans-serif`,
+                                        msgTextFont: `Arial, Helvetica, 
+                                            sans-serif`,
+                                        iconBackgroundColor: '#291010',
+                                    },
+                                });
+                        </code>
+                    </pre>
+                <div class="button-container">
+                    <span class="button" onclick="customStylingFlash('.flashy-inline-5')">Recreate Flash</span>
+                    <span class="button" onclick="toggleCode('#code-customisation-flash-1')">Toggle Code</span>
+                </div>
+            </div>
+            <div class="inline-container">
+                <h3 class="default-card-title">custom emoji</h3>
+                <flash-messages class="flashy-inline flashy-inline-6" data-max-messages="1"></flash-messages>
+                <pre id="code-customisation-flash-2" class="hideable code">
+                <code class="language-javascript">
+                        Flashy('.my-flash-message-element', {
+                            type: 'info',
+                            title: 'custom emoji',
+                            message: 'check out the emoji!',
+                            globalClose: true,
+                            styles: {
+                                icon: {
+                                    type: 'unicode',
+                                    val: '🤑',
+                                },
+                            },
+                        });
+                </code>
+            </pre>
+                <div class="button-container">
+                    <span class="button" onclick="customEmojiFlash('.flashy-inline-6')">Recreate Flash</span>
+                    <span class="button" onclick="toggleCode('#code-customisation-flash-2')">Toggle Code</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="heading">Buttons</h2>
+        <span class="section-info">Flashy messages can also contain buttons! You can set the buttons up to close the
+            message, or to execute a custom function.</span>
+        <div class="container">
+            <div class="inline-container">
+                <h3 class="default-card-title">prompt</h3>
+                <flash-messages class="flashy-inline flashy-inline-7" data-max-messages="1"></flash-messages>
+                <pre id="code-buttons-flash-1" class="hideable code">
+                <code class="language-javascript">
+                    Flashy('.my-flash-message-element', {
+                        type: 'success',
+                        title: 'something happened',
+                        message: 'you have to click ok',
+                        globalClose: false,
+                        buttons: [
+                            {
+                                text: 'OK',
+                                closesFlash: true,
+                            },
+                        ],
+                    });
+                </code>
+            </pre>
+                <div class="button-container">
+                    <span class="button" onclick="promptFlash('.flashy-inline-7')">Recreate Flash</span>
+                    <span class="button" onclick="toggleCode('#code-buttons-flash-1')">Toggle Code</span>
+                </div>
+            </div>
+            <div class="inline-container">
+                <h3 class="default-card-title">multiple buttons</h3>
+                <flash-messages class="flashy-inline flashy-inline-8" data-max-messages="1"></flash-messages>
+                <pre id="code-buttons-flash-2" class="hideable code">
+                    <code class="language-javascript">
+                        Flashy('.my-flash-message-element', {
+                            type: 'error',
+                            title: 'something happened',
+                            message: 'you can click okay or cancel',
+                            globalClose: false,
+                            buttons: [
+                                {
+                                    text: 'OK',
+                                    closesFlash: true,
+                                },
+                                {
+                                    text: 'Cancel',
+                                    closesFlash: true,
+                                },
+                            ],
+                            styles: {
+                                linkTextColor: 'black',
+                            },
+                        });
+                    </code>
+                </pre>
+                <div class="button-container">
+                    <span class="button" onclick="multipleButtonsFlash('.flashy-inline-8')">Recreate Flash</span>
+                    <span class="button" onclick="toggleCode('#code-buttons-flash-2')">Toggle Code</span>
+                </div>
+            </div>
+            <div class="inline-container">
+                <h3 class="default-card-title">custom action</h3>
+                <flash-messages class="flashy-inline flashy-inline-9" data-max-messages="1"></flash-messages>
+                <pre id="code-buttons-flash-3" class="hideable code">
+                        <code class="language-javascript">
+                            function secretFunction() {
+                                alert('wow');
+                            }
+                        
+                            Flashy('.my-flash-message-element', {
+                                type: 'warning',
+                                title: 'something happened',
+                                message: 'click ok!',
+                                globalClose: true,
+                                buttons: [
+                                    {
+                                        text: 'OK',
+                                        closesFlash: false,
+                                        action: secretFunction,
+                                    },
+                                ],
+                            });
+                        </code>
+                    </pre>
+                <div class="button-container">
+                    <span class="button" onclick="customActionFlash('.flashy-inline-9')">Recreate Flash</span>
+                    <span class="button" onclick="toggleCode('#code-buttons-flash-3')">Toggle Code</span>
+                </div>
+            </div>
+        </div>
+        <flash-messages class="flashy-default"></flash-messages>
+
+        <div class="footer">
+
+        </div>
 </body>
 
 </html>

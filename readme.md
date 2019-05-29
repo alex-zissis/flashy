@@ -1,10 +1,15 @@
 # Flashy
 
+[![Build Status](https://travis-ci.org/alex-zissis/flashy.svg?branch=master)](https://travis-ci.org/alex-zissis/flashy)
+
 Flashy is a 0 dependancy, lightweight flash messages library built using vanilla web components.
 
 <p align="center">
     <img src="https://media.giphy.com/media/VCtijNUKGt3ZYIAUTX/giphy.gif">
 </p>
+
+## Demo
+[Demo Page](https://alex-zissis.github.io/flashy)
 
 ## Installation
 #### HTML
