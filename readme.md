@@ -183,4 +183,4 @@ The acceptable values in the options object.
     });
 ```
 
-Check out the website for project website https://alex-zissis.github.com
+Check out the website for project website https://alex-zissis.github.io/flashy
