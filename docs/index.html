@@ -74,23 +74,26 @@
             flash
             message like below.</span>
         <div class="container">
-            <pre id="code-html-getting-started" class="html">
-            <code class="language-markup">
-                &lt;script src="https://unpkg.com/flashy-js@latest/dist/flashy.min.js"&gt;&lt;/script&gt;
-                &lt;flash-messages data-max-messages="5"&gt;&lt;/flash-messages&gt;
-                &lt;script&gt;
-                    // now you have Flashy available as a global varirable
-                    Flashy('.my-flash-message-element', {
-                        type: 'success',
-                        title: 'Now you can use flashy',
-                        message: `Simply call the Flashy
-                            function like this`,
-                        globalClose: true,
-                        expiry: 5000
-                    });
-                &lt;/script&gt;
-            </code>
-        </pre>
+            <div class="inline-container html-container">
+                <pre id="code-html-getting-started" class="html">
+                            <code class="language-markup">
+                                &lt;script src="https://unpkg.com/flashy-js@latest/dist/flashy.min.js"&gt;&lt;/script&gt;
+                                &lt;flash-messages data-max-messages="5"&gt;&lt;/flash-messages&gt;
+                                &lt;script&gt;
+                                    // now you have Flashy available as a global varirable
+                                    Flashy('.my-flash-message-element', {
+                                        type: 'success',
+                                        title: 'Now you can use flashy',
+                                        message: `Simply call the Flashy
+                                            function like this`,
+                                        globalClose: true,
+                                        expiry: 5000
+                                    });
+                                &lt;/script&gt;
+                            </code>
+                        </pre>
+            </div>
+
         </div>
 
         <h2 class="heading">Basic Flash Messages</h2>

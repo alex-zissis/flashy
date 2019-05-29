@@ -87,9 +87,14 @@ h1, h2, h3, h4, h5, h6 {
     margin: auto;
 }
 
+.html-container {
+    max-width: 80%;
+    margin-bottom: 20px !important;
+}
+
 .html {
     font-size: .7em;
-    margin-bottom: 20px !important;
+    width: 100%;
 }
 
 .code {
