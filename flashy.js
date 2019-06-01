@@ -8,7 +8,6 @@ window.onload = function() {
             flex-wrap: wrap;
             left: 10px;
             bottom: 0px;
-            height: 10%;
             width: 17%;
             font-family: sans-serif;
             min-width: 300px;
@@ -20,7 +19,9 @@ window.onload = function() {
 
 function triggerAnimation(duration, className, element) {
     element.classList.add(className);
-    setTimeout(() => element.classList.remove(className), duration);
+    element.addEventListener('animationend', () => {
+        element.classList.remove(className);
+    });
 }
 
 class FlashMessages extends HTMLElement {
@@ -36,19 +37,21 @@ class FlashMessages extends HTMLElement {
         style.textContent = `
         .flash-message {
             width: 100%;
-            height: 80%;
+            height: max-content;
             margin-bottom: 5%;
-            padding: 15px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-            box-sizing: border-box;         /* Opera/IE 8+ */
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             border-radius: 10px;
             background-color: #ecf0f1;
             font-family: 'Roboto', sans-serif;
             display: flex;
+            align-items: center;
             position: relative;
+            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+            box-sizing: border-box;         /* Opera/IE 8+ */
+            padding-right: 10px;
+            
         }
        
         .flash-message:hover {
@@ -88,14 +91,10 @@ class FlashMessages extends HTMLElement {
         }
        
         .left-part {
-            display: inline-block;
             height: 100%;
             width: 25%;
-            padding-top: 15px;
-            padding-bottom: 15px;
-            margin-top: -15px;
-            margin-left: -15px;
             display: flex;
+            flex-shrink: 1;
             align-items: center;
             justify-content: center;
             color: white;
@@ -105,11 +104,10 @@ class FlashMessages extends HTMLElement {
  
         .right-part {
             display: inline-block;
-           
-            margin-top: -15px;
-            padding-top: 15px;
-            padding-bottom: 15px;
+            flex-shrink: 100;
             padding-left: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
        
         .flash-title {
@@ -247,6 +245,7 @@ class FlashMessages extends HTMLElement {
                 );
             }
             elem.remove();
+            this.set_bottom();
         }, 200);
     }
 
@@ -273,7 +272,6 @@ class FlashMessages extends HTMLElement {
         if (options.styles && options.styles.flashColor) {
             newFlash.style.backgroundColor = options.styles.flashColor;
         }
-        triggerAnimation(200, 'movein', newFlash);
 
         const leftPart = document.createElement('div');
         leftPart.classList.add('left-part');
@@ -362,6 +360,15 @@ class FlashMessages extends HTMLElement {
         return newFlash;
     }
 
+    set_bottom() {
+        this.style.bottom = `${this.shadowRootObj.children[0].clientHeight -
+            this.clientHeight +
+            20}px`;
+        this.shadowRootObj.children[0].children[0].style.height = `${
+            this.shadowRootObj.children[0].clientHeight
+        }px`;
+    }
+
     add_child(options) {
         const newFlash = this.create_child(options);
 
@@ -370,11 +377,12 @@ class FlashMessages extends HTMLElement {
         if (length - 1 >= this.maxMessages) {
             this.shadowRootObj.lastChild.previousSibling.remove();
         }
-
         this.shadowRootObj.insertBefore(
             newFlash,
             this.shadowRootObj.firstChild
         );
+        this.set_bottom(newFlash);
+        triggerAnimation(200, 'movein', newFlash);
         if (newFlash.nextElementSibling) {
             triggerAnimation(200, 'movedown', newFlash.nextElementSibling);
         }

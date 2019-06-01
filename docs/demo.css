@@ -145,9 +145,18 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
-.header-title {
-    color: white;
+.header-logo {
+    margin-left: 3%;
+    height: 80%;
+}
+
+.secondary-info {
+    font-size: .7em;
+}
+
+.body-logo {
     margin-left: 5%;
+    width: 20%;
 }
 
 .w-80 {
