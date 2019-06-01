@@ -29,15 +29,18 @@
 
 <body>
     <div class="header">
-        <span class="header-title">Flashy</span>
+        <img class="header-logo" alt="Grey Flashy Logo" src="./img/flashy-logo-grey.png">
     </div>
 
     <br><br><br>
     <h1 class="title">Welcome to Flashy</h1>
+    <img class="body-logo" alt="Pink Flashy Logo" src="./img/flashy-logo.png"><br><br>
     <h4 class="subtitle">Flashy is a 0 dependancy, lightweight flash messages library built using vanilla web
         components.</h4>
 
     <span class="section-info">A web component by <a href="https://alexzissis.tech">Alex Zissis</a>.</span>
+    <span class="section-info secondary-info">Special thanks to <a href="https://alexzissis.tech">Grace Cox</a> for the
+        logo.</span>
 
     <div class="badges">
         <img class="travis-badge" src="https://travis-ci.org/alex-zissis/flashy.svg?branch=master">
@@ -56,7 +59,7 @@
         <span class="section-info">Flashy messages are minimilistic, concise messages that are shown to the user, often
             to
             convey the outcome of an action.</span>
-        <span class="section-info">Flashy messages work in a queue system. Try adding Flashy messages below abd see what
+        <span class="section-info">Flashy messages work in a queue system. Try adding Flashy messages below and see what
             happens.</span>
 
         <div class="container">
@@ -75,23 +78,26 @@
             flash
             message like below.</span>
         <div class="container">
-            <pre id="code-html-getting-started" class="html">
-            <code class="language-markup">
-                &lt;script src="https://unpkg.com/flashy-js@latest/dist/flashy.min.js"&gt;&lt;/script&gt;
-                &lt;flash-messages data-max-messages="5"&gt;&lt;/flash-messages&gt;
-                &lt;script&gt;
-                    // now you have Flashy available as a global varirable
-                    Flashy('.my-flash-message-element', {
-                        type: 'success',
-                        title: 'Now you can use flashy',
-                        message: `Simply call the Flashy
-                            function like this`,
-                        globalClose: true,
-                        expiry: 5000
-                    });
-                &lt;/script&gt;
-            </code>
-        </pre>
+            <div class="inline-container html-container">
+                <pre id="code-html-getting-started" class="html">
+                            <code class="language-markup">
+                                &lt;script src="https://unpkg.com/flashy-js@latest/dist/flashy.min.js"&gt;&lt;/script&gt;
+                                &lt;flash-messages data-max-messages="5"&gt;&lt;/flash-messages&gt;
+                                &lt;script&gt;
+                                    // now you have Flashy available as a global varirable
+                                    Flashy('flash-messages', {
+                                        type: 'success',
+                                        title: 'Now you can use flashy',
+                                        message: `Simply call the Flashy
+                                            function like this`,
+                                        globalClose: true,
+                                        expiry: 5000
+                                    });
+                                &lt;/script&gt;
+                            </code>
+                        </pre>
+            </div>
+
         </div>
 
         <h2 class="heading">Basic Flash Messages</h2>

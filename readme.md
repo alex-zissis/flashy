@@ -1,4 +1,7 @@
 # Flashy
+<p align="center">
+    <img src="./docs/img/flashy-logo.png" style="width: 200px">
+</p>
 
 [![Build Status](https://travis-ci.org/alex-zissis/flashy.svg?branch=master)](https://travis-ci.org/alex-zissis/flashy)
 
@@ -61,15 +64,16 @@ The Flashy function creates a new flash message to display to the user. The Flas
 
 ###### Options
 The acceptable values in the options object.
-| Key         | Type     | Required | Allowable Values                 | Description                                                                         |
-|-------------|----------|----------|----------------------------------|-------------------------------------------------------------------------------------|
-| *type*        | string   | true     | error / warning / info / success | The type of the flash message                                                       |
-| *title*       | string   | false    | N/A                              | The title of the flash message                                                      |
-| *message*     | string   | false    | N/A                              | The message displayede                                                              |
-| *expiry*      | string   | false    | N/A (defaults to 0)              | Time in MS until message will expire and disappear                                  |
-| *globalClose* | boolean  | false    | *true* / false                   | Adds a close button to the flash message                                            |
-| *buttons*     | object[] | false    | N/A                              | An array of buttons to be added to the message. See below for the button defenition |
-| *styles*      | object   | false    | N/A                              | CSS styles to customise the flash message. See below for the style definition       |
+
+|Key| Type | Required | Allowable Values | Description |
+|--|--|--|--|--|
+| *type* | string | true | error / warning / info / success | The type of the flash message |
+| *title* | string | false | N/A | The title of the flash message |
+| *message* | string | false | N/A | The message displayede |
+| *expiry* | string | false | N/A (defaults to 0) | Time in MS until message will expire and disappear |
+| *globalClose* | boolean | false | *true* / false | Adds a close button to the flash message |
+| *styles* | object | false | N/A | CSS styles to customise the flash message. See below for the style definition |
+
 
 ###### Buttons
 | Key         | Type     | Required | Allowable Values | Description                                                       |
@@ -182,4 +186,4 @@ The acceptable values in the options object.
     });
 ```
 
-Check out the website for project website https://alex-zissis.github.com
+Check out the website for project website https://alex-zissis.github.io/flashy

@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/alex-zissis/flashy/issues"
   },
-  "homepage": "https://github.com/alex-zissis/flashy#readme",
+  "homepage": "https://alex-zissis.github.io/flashy",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
