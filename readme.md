@@ -1,4 +1,7 @@
 # Flashy
+<p align="center">
+    <img src="./docs/img/flashy-logo.png" style="width: 200px">
+</p>
 
 [![Build Status](https://travis-ci.org/alex-zissis/flashy.svg?branch=master)](https://travis-ci.org/alex-zissis/flashy)
 

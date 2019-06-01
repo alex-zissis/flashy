@@ -142,7 +142,8 @@ window.addEventListener('load', function() {
     Flashy('.flashy-default', {
         type: 'success',
         title: 'Welcome to Flashy!',
-        message: 'This is a flashy message',
+        message:
+            'This is a flashy message. Flashy messages come in all shapes and sizes but their main purpose is to convey a simple message to a user!',
         globalClose: true,
         expiry: 5000,
         buttons: [
@@ -184,7 +185,8 @@ window.addEventListener('load', function() {
         Flashy('.flashy-default', {
             type: 'info',
             title: 'Flashy Positioning',
-            message: 'Flashy messages appear in the bottom-left',
+            message:
+                'Flashy messages appear in the bottom-left corner by default, but you can overide that on the flash-messages element',
             expiry: 5000,
             globalClose: true,
         });
