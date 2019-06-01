@@ -1,13 +1,13 @@
 {
   "name": "flashy-js",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Flashy is a lightweight, 0 dependency library that creates beatiful flash messages, using vanilla web components.",
   "main": "dist/flashy.js",
   "unpkg": "dist/flashy.min.js",
   "scripts": {
     "test": "echo \"test\"",
-    "lint": "eslint *.js",
-    "lint-fix": "eslint *.js --fix",
+    "lint": "eslint . --ext .js",
+    "lint-fix": "eslint . --ext .js --fix",
     "build": "rollup -c"
   },
   "repository": {
