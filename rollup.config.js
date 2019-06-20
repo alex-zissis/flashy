@@ -29,4 +29,18 @@ export default [
             }),
         ],
     },
+    {
+        input: 'flashy.js',
+        output: {
+            file: 'dist/flashy.es5.js',
+            format: 'iife',
+            name: 'Flashy',
+        },
+        plugins: [
+            babel({
+                exclude: 'node_modules/**',
+                presets: [['es2015']]
+            }),
+        ],
+    },
 ];
