@@ -39,7 +39,7 @@ export default [
         plugins: [
             babel({
                 exclude: 'node_modules/**',
-                presets: [['es2015']]
+                presets: [['es2015']],
             }),
         ],
     },
